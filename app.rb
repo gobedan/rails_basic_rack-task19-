@@ -20,11 +20,12 @@ class App
   OK_STATUS = 200
 
   def generate_response_body
+    body = [] 
     @formatter = TimeFormatter.new(@request['format'])
     if @formatter.valid?
-      @formatter.time
+      body << @formatter.time
     else 
-      @formatter.invalid_formats
+      body << @formatter.invalid_formats
     end
   end
 
